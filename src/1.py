@@ -5,7 +5,7 @@
 # https://www.python.org/dev/peps/pep-0484/
 from dataclasses import dataclass, field
 import typing 
-from typing import Any, Callable, Iterable, Tuple, Optional, List, Tuple, Dict, ClassVar, Union, TypeVar, NewType, Sequence
+from typing import Any, Callable, Iterable, Tuple, Optional, List, Tuple, Dict, ClassVar, Union, TypeVar, NewType, Sequence, Mapping
 from decimal import Decimal
 from pathlib import Path 
 #import re
@@ -39,6 +39,7 @@ class MyData:
     tv: T = None
     id: Id = 0
     s: Sequence[int] = field(default_factory=list)
+    m: Mapping[str, int] = field(default_factory=dict)
 #    d: dict = {}
 #    l: list = []
 #    t: tuple = (,)
@@ -55,5 +56,11 @@ class MyData:
 d = MyData()
 d.name = 'Yamada'
 d.img = 3+1j
+d.age = 'a' # エラーにならない...
+d.age = 100
 print(f"{d.name}, {d.age}, {d.img}")
 print(d.intro())
+def myfunc(): print('myfunc()')
+d.wrap(myfunc)
+#def myfunc2(a): print('myfunc2()')
+#d.wrap(myfunc2)
