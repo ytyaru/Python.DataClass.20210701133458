@@ -6,14 +6,16 @@ from dataclasses import dataclass
 
 @dataclass
 class MyData:
-    name: str
-    age: int
-    is_dead: bool
+    '''Class for keeping track of an item in inventory.'''
+    name: str = ''
+    data: bytes = b''
+    age: int = 0
+    rate: float = 0.0
+    img: complex = 0.0
+    is_dead: bool = False
     def intro(self) -> str: return f'My name is {self.name}.'
 
-
-if __name__ == "__main__":
-    d = MyData('Yamada', 12, True)
-    d.name = 'Tanaka'
-    print(f"{d.name}, {d.age}")
-    print(d.intro())
+d = MyData()
+d.name = 'Yamada'
+print(f"{d.name}, {d.age}")
+print(d.intro())
