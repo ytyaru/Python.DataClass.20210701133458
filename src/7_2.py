@@ -2,7 +2,6 @@
 # coding: utf8
 # 疑似フィールド：クラス変数
 from dataclasses import dataclass, field, InitVar
-from typing import ClassVar
 @dataclass(frozen=True)
 class MyData:
     name: InitVar[str] = ''
